@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodboard – NEXO</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:    #080C10;
+    --dark:     #0D1117;
+    --card:     #161B22;
+    --border:   #30363D;
+    --green:    #3DD68C;
+    --green2:   #238636;
+    --blue:     #58A6FF;
+    --amber:    #F0A500;
+    --pink:     #F778BA;
+    --text:     #E6EDF3;
+    --muted:    #8B949E;
+    --white:    #FFFFFF;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { 
+    background: var(--black); 
+    color: var(--text); 
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── GRID WRAPPER ── */
+  .moodboard {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+    gap: 3px;
+    padding: 3px;
+    min-height: 100vh;
+  }
+
+  /* ── SHARED TILE STYLES ── */
+  .tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ─────────────────────────────────────────
+     LÁMINA 1 – PORTADA  (col 1-12, row 1-3)
+  ───────────────────────────────────────── */
+  .cover {
+    grid-column: 1 / -1;
+    grid-row: 1 / 4;
+    background: var(--dark);
+    flex-direction: column;
+    gap: 12px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content:'';
+    position:absolute; inset:0;
+    background: 
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,214,140,.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(88,166,255,.10) 0%, transparent 70%);
+  }
+  .cover-grid {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity:.25;
+  }
+  .cover-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    background: rgba(61,214,140,.12);
+    border: 1px solid var(--green2);
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index:1;
+  }
+  .cover-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 10vw, 140px);
+    line-height: .9;
+    letter-spacing: -2px;
+    color: var(--white);
+    z-index:1;
+    text-align:center;
+  }
+  .cover-title span { color: var(--green); }
+  .cover-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    z-index:1;
+    text-align:center;
+    max-width:600px;
+  }
+  .cover-meta {
+    display:flex; gap:24px; z-index:1;
+    font-family:'Space Mono', monospace;
+    font-size:11px; color:var(--muted);
+    margin-top:8px;
+  }
+  .cover-meta span { color: var(--blue); }
+
+  /* ─────────────────────────────────────────
+     LÁMINA 2 – TIPO DE STORYTELLING (col 1-4, row 4-6)
+  ───────────────────────────────────────── */
+  .tipo {
+    grid-column: 1 / 5;
+    grid-row: 4 / 7;
+    background: var(--green);
+    flex-direction:column;
+    align-items:flex-start;
+    padding: 32px;
+    gap:12px;
+  }
+  .tipo-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color: rgba(0,0,0,.5);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .tipo-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size: 56px;
+    color: var(--black);
+    line-height:.9;
+  }
+  .tipo-tags {
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:auto;
+  }
+  .tag {
+    background: rgba(0,0,0,.15);
+    color: var(--black);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    padding: 5px 12px;
+    border-radius:4px;
+  }
+
+  /* ─────────────────────────────────────────
+     OBJETIVO ESTRATÉGICO visual ring (col 5-8, row 4-6)
+  ───────────────────────────────────────── */
+  .objetivo {
+    grid-column: 5 / 9;
+    grid-row: 4 / 7;
+    background: var(--dark);
+    flex-direction:column;
+    padding:32px;
+    gap:16px;
+    position:relative;
+  }
+  .objetivo-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    align-self:flex-start;
+  }
+  .objetivo svg { width:100%; max-width:220px; }
+
+  /* ─────────────────────────────────────────
+     AUDIENCIA (col 9-12, row 4-6)
+  ───────────────────────────────────────── */
+  .audiencia {
+    grid-column: 9 / -1;
+    grid-row: 4 / 6;
+    background: var(--blue);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:28px;
+    gap:10px;
+  }
+  .audiencia-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:rgba(0,0,0,.5);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .audiencia-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:44px;
+    color:var(--black);
+    line-height:1;
+  }
+  .audience-list {
+    display:flex; flex-direction:column; gap:6px; width:100%;
+  }
+  .audience-item {
+    display:flex; align-items:center; gap:8px;
+    font-size:12px; color:rgba(0,0,0,.7);
+    font-family:'Space Mono',monospace;
+  }
+  .audience-item::before { content:'→'; color:var(--black); font-weight:700; }
+
+  /* ─────────────────────────────────────────
+     FORMATO (col 9-12, row 6)
+  ───────────────────────────────────────── */
+  .formato {
+    grid-column: 9 / -1;
+    grid-row: 6 / 7;
+    background: var(--black);
+    border: 1px solid var(--border);
+    padding:20px 28px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .formato-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .formato-pills {
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .pill {
+    border:1px solid var(--border);
+    color:var(--text);
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    padding:4px 10px;
+    border-radius:20px;
+  }
+  .pill.active {
+    border-color:var(--amber);
+    color:var(--amber);
+    background:rgba(240,165,0,.08);
+  }
+
+  /* ─────────────────────────────────────────
+     PALETA – 5 color swatches (col 1-12, row 7)
+  ───────────────────────────────────────── */
+  .paleta-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 7;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 3fr;
+    gap:3px;
+  }
+  .swatch {
+    height:100px;
+    display:flex;
+    align-items:flex-end;
+    padding:10px;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    position:relative;
+    overflow:hidden;
+  }
+  .swatch-name {
+    color:rgba(255,255,255,.7);
+    font-size:9px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  .swatch-hex { color:#fff; font-weight:700; font-size:12px; display:block; }
+  .swatch-label {
+    grid-column:6;
+    background: var(--dark);
+    border:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:4px;
+    padding:12px 24px;
+  }
+  .paleta-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:32px;
+    color:var(--muted);
+    letter-spacing:4px;
+  }
+  .paleta-sub {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:2px;
+  }
+
+  /* ─────────────────────────────────────────
+     NARRATIVA visual (col 1-5, row 8-10)
+  ───────────────────────────────────────── */
+  .narrativa {
+    grid-column: 1 / 6;
+    grid-row: 8 / 11;
+    background: var(--dark);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:32px;
+    gap:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .narrativa::after {
+    content:'';
+    position:absolute;
+    bottom:-60px; right:-60px;
+    width:200px; height:200px;
+    background: radial-gradient(circle, rgba(61,214,140,.2), transparent 70%);
+    pointer-events:none;
+  }
+  .narrativa-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--green);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .narrativa-quote {
+    font-family:'DM Sans',sans-serif;
+    font-size:22px;
+    font-weight:300;
+    line-height:1.5;
+    color:var(--text);
+  }
+  .narrativa-quote strong { color:var(--green); font-weight:500; }
+  .arc-steps {
+    display:flex; flex-direction:column; gap:10px; width:100%;
+  }
+  .arc-step {
+    display:flex; align-items:center; gap:12px;
+  }
+  .arc-num {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--green);
+    background:rgba(61,214,140,.1);
+    border:1px solid var(--green2);
+    width:28px; height:28px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .arc-text {
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+  }
+  .arc-connector {
+    width:1px; height:20px;
+    background:var(--green2);
+    margin-left:13px;
+  }
+
+  /* ─────────────────────────────────────────
+     KEYWORDS (col 6-12, row 8-9)
+  ───────────────────────────────────────── */
+  .keywords {
+    grid-column: 6 / -1;
+    grid-row: 8 / 10;
+    background: var(--amber);
+    padding:28px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    overflow:hidden;
+    position:relative;
+  }
+  .keywords-bg {
+    position:absolute; inset:0;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:200px;
+    color:rgba(0,0,0,.06);
+    line-height:1;
+    white-space:nowrap;
+    overflow:hidden;
+    pointer-events:none;
+    top:-20px;
+  }
+  .keywords-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:rgba(0,0,0,.5);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    z-index:1;
+  }
+  .kw-grid {
+    display:flex; flex-wrap:wrap; gap:6px; z-index:1;
+  }
+  .kw {
+    font-family:'Bebas Neue',sans-serif;
+    font-size: clamp(18px,2.5vw,32px);
+    color: var(--black);
+    line-height:1;
+  }
+  .kw.big { font-size: clamp(32px,4vw,56px); color:rgba(0,0,0,.8); }
+  .kw.small { font-size:16px; color:rgba(0,0,0,.5); }
+
+  /* ─────────────────────────────────────────
+     REFERENCIAS VISUAL (col 6-9, row 10)
+  ───────────────────────────────────────── */
+  .referencias {
+    grid-column: 6 / 10;
+    grid-row: 10;
+    background: var(--pink);
+    padding:24px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .ref-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:rgba(0,0,0,.5);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .ref-icons {
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .ref-icon {
+    width:48px; height:48px;
+    background: rgba(0,0,0,.12);
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px;
+  }
+
+  /* ─────────────────────────────────────────
+     REFLEXIÓN (col 10-12, row 10)
+  ───────────────────────────────────────── */
+  .reflexion {
+    grid-column: 10 / -1;
+    grid-row: 10;
+    background: var(--dark);
+    border:1px solid var(--border);
+    padding:24px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .ref2-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .ref2-text {
+    font-family:'DM Sans',sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  .ref2-text strong { color:var(--green); }
+
+  /* ─────────────────────────────────────────
+     TERMINAL BLOCK (col 1-5, row 11)  ← código vivo
+  ───────────────────────────────────────── */
+  .terminal {
+    grid-column: 1 / 6;
+    grid-row: 11;
+    background: #010409;
+    padding:20px 24px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+    border:1px solid var(--border);
+  }
+  .term-bar {
+    display:flex; gap:6px; margin-bottom:8px;
+  }
+  .dot { width:10px; height:10px; border-radius:50%; }
+  .dot.r{background:#FF5F57;} .dot.y{background:#FEBC2E;} .dot.g{background:#28C840;}
+  .term-line {
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  .term-line .p { color:var(--green); }
+  .term-line .c { color:var(--blue); }
+  .term-line .s { color:var(--amber); }
+  .term-line .ok{ color:var(--green); }
+
+  /* ─────────────────────────────────────────
+     RESUMEN (col 6-12, row 11)
+  ───────────────────────────────────────── */
+  .resumen {
+    grid-column: 6 / -1;
+    grid-row: 11;
+    background: var(--green);
+    padding:28px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .res-label {
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:rgba(0,0,0,.5);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .res-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:36px;
+    color:var(--black);
+    line-height:1;
+  }
+  .res-points {
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .res-point {
+    font-family:'DM Sans',sans-serif;
+    font-size:12px;
+    color:rgba(0,0,0,.7);
+    display:flex; align-items:flex-start; gap:8px;
+  }
+  .res-point::before { content:'◆'; color:var(--black); flex-shrink:0; font-size:8px; margin-top:3px;}
+
+  /* Print / export */
+  @media print {
+    body { background:#fff; }
+  }
+
+  /* Lamina number badges */
+  .lam-num {
+    position:absolute;
+    top:12px; right:12px;
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+    color:rgba(255,255,255,.2);
+    letter-spacing:1px;
+  }
+  .lam-num.dark { color:rgba(0,0,0,.2); }
+</style>
+</head>
+<body>
+<div class="moodboard">
+
+  <!-- ── LÁMINA 1: PORTADA ── -->
+  <div class="tile cover">
+    <div class="cover-grid"></div>
+    <div class="cover-badge">Moodboard · Storytelling</div>
+    <h1 class="cover-title">NEX<span>O</span></h1>
+    <p class="cover-sub">Repositorio institucional de código abierto para el desarrollo, documentación e implementación colaborativa de tecnologías estudiantiles.</p>
+    <div class="cover-meta">
+      <span>Proyecto: <span>NEXO</span></span>
+      <span>Formato: <span>Web Interactiva</span></span>
+      <span>Área: <span>Ingeniería / Tecnología</span></span>
+    </div>
+    <div class="lam-num">01 — PORTADA</div>
+  </div>
+
+  <!-- ── LÁMINA 2: TIPO DE STORYTELLING ── -->
+  <div class="tile tipo">
+    <span class="lam-num dark">02 — TIPO</span>
+    <p class="tipo-label">Tipo de Storytelling</p>
+    <h2 class="tipo-title">EDUCATIVO<br>+ TÉCNICO</h2>
+    <div class="tipo-tags">
+      <span class="tag">Narrativa de impacto</span>
+      <span class="tag">Comunidad → acción</span>
+      <span class="tag">Documental / Tutorial</span>
+    </div>
+  </div>
+
+  <!-- ── LÁMINA 3: OBJETIVO ESTRATÉGICO ── -->
+  <div class="tile objetivo">
+    <span class="lam-num">03 — OBJETIVO</span>
+    <p class="objetivo-label">Objetivo Estratégico</p>
+    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- outer ring segments -->
+      <circle cx="110" cy="110" r="95" fill="none" stroke="#30363D" stroke-width="1"/>
+      <circle cx="110" cy="110" r="60" fill="none" stroke="#30363D" stroke-width="1"/>
+      <circle cx="110" cy="110" r="28" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+      <!-- segments -->
+      <path d="M110 110 L110 15 A95 95 0 0 1 194 57 Z" fill="rgba(61,214,140,.25)" stroke="#0D1117" stroke-width="1.5"/>
+      <path d="M110 110 L194 57 A95 95 0 0 1 205 163 Z" fill="rgba(88,166,255,.2)" stroke="#0D1117" stroke-width="1.5"/>
+      <path d="M110 110 L205 163 A95 95 0 0 1 110 205 Z" fill="rgba(240,165,0,.2)" stroke="#0D1117" stroke-width="1.5"/>
+      <path d="M110 110 L110 205 A95 95 0 0 1 15 163 Z" fill="rgba(247,120,186,.2)" stroke="#0D1117" stroke-width="1.5"/>
+      <path d="M110 110 L15 163 A95 95 0 0 1 26 57 Z" fill="rgba(61,214,140,.15)" stroke="#0D1117" stroke-width="1.5"/>
+      <path d="M110 110 L26 57 A95 95 0 0 1 110 15 Z" fill="rgba(88,166,255,.15)" stroke="#0D1117" stroke-width="1.5"/>
+      <!-- labels -->
+      <text x="140" y="52" fill="#3DD68C" font-family="Space Mono" font-size="8" text-anchor="middle">ENSEÑAR</text>
+      <text x="188" y="118" fill="#58A6FF" font-family="Space Mono" font-size="8" text-anchor="middle">CONECTAR</text>
+      <text x="162" y="178" fill="#F0A500" font-family="Space Mono" font-size="7" text-anchor="middle">EMPODERAR</text>
+      <text x="58" y="178" fill="#F778BA" font-family="Space Mono" font-size="8" text-anchor="middle">COLABORAR</text>
+      <text x="30" y="118" fill="#3DD68C" font-family="Space Mono" font-size="8" text-anchor="middle">DOCUMENTAR</text>
+      <text x="80" y="52" fill="#58A6FF" font-family="Space Mono" font-size="8" text-anchor="middle">INNOVAR</text>
+      <!-- center -->
+      <text x="110" y="107" fill="#E6EDF3" font-family="Bebas Neue" font-size="10" text-anchor="middle" letter-spacing="1">NEXO</text>
+      <text x="110" y="118" fill="#8B949E" font-family="Space Mono" font-size="7" text-anchor="middle">ESTRATÉGICO</text>
+    </svg>
+  </div>
+
+  <!-- ── LÁMINA 6: AUDIENCIA ── -->
+  <div class="tile audiencia">
+    <span class="lam-num dark">06 — AUDIENCIA</span>
+    <p class="audiencia-label">Audiencia</p>
+    <h2 class="audiencia-title">COMUNIDAD<br>ACADÉMICA</h2>
+    <div class="audience-list">
+      <div class="audience-item">Estudiantes de ingeniería / TI (18–26 años)</div>
+      <div class="audience-item">Docentes e investigadores institucionales</div>
+      <div class="audience-item">Colaboradores externos open-source</div>
+    </div>
+  </div>
+
+  <!-- ── LÁMINA 7: FORMATO ── -->
+  <div class="tile formato">
+    <span class="lam-num">07 — FORMATO</span>
+    <p class="formato-label">Formato y Soporte</p>
+    <div class="formato-pills">
+      <span class="pill active">Plataforma Web</span>
+      <span class="pill active">App de escritorio</span>
+      <span class="pill">CLI / Terminal</span>
+      <span class="pill">API pública</span>
+      <span class="pill">Docs estáticos</span>
+    </div>
+  </div>
+
+  <!-- ── LÁMINA 4: PALETA ── -->
+  <div class="paleta-wrapper">
+    <div class="swatch" style="background:#080C10; grid-column:1">
+      <div><span class="swatch-hex">#080C10</span><span class="swatch-name">Void</span></div>
+    </div>
+    <div class="swatch" style="background:#0D1117; grid-column:2">
+      <div><span class="swatch-hex">#0D1117</span><span class="swatch-name">Noche</span></div>
+    </div>
+    <div class="swatch" style="background:#3DD68C; grid-column:3">
+      <div><span class="swatch-hex" style="color:#000">#3DD68C</span><span class="swatch-name" style="color:rgba(0,0,0,.6)">Código</span></div>
+    </div>
+    <div class="swatch" style="background:#58A6FF; grid-column:4">
+      <div><span class="swatch-hex" style="color:#000">#58A6FF</span><span class="swatch-name" style="color:rgba(0,0,0,.6)">Sistema</span></div>
+    </div>
+    <div class="swatch" style="background:#F0A500; grid-column:5">
+      <div><span class="swatch-hex" style="color:#000">#F0A500</span><span class="swatch-name" style="color:rgba(0,0,0,.6)">Commit</span></div>
+    </div>
+    <div class="swatch-label">
+      <p class="paleta-title">ESTÉTICA</p>
+      <p class="paleta-sub">04 — Paleta de colores · Tipografía: Bebas Neue + Space Mono + DM Sans</p>
+    </div>
+  </div>
+
+  <!-- ── LÁMINA 5: NARRATIVA ── -->
+  <div class="tile narrativa">
+    <span class="lam-num">05 — NARRATIVA</span>
+    <p class="narrativa-label">Narrativa del Storytelling</p>
+    <p class="narrativa-quote">
+      Un estudiante con una idea transforma su institución al <strong>compartir su código con todos.</strong>
+    </p>
+    <div class="arc-steps">
+      <div class="arc-step"><div class="arc-num">1</div><p class="arc-text">Estudiante descubre un problema real en su carrera</p></div>
+      <div class="arc-connector"></div>
+      <div class="arc-step"><div class="arc-num">2</div><p class="arc-text">Desarrolla una solución y la documenta en NEXO</p></div>
+      <div class="arc-connector"></div>
+      <div class="arc-step"><div class="arc-num">3</div><p class="arc-text">La comunidad colabora, mejora y adopta el proyecto</p></div>
+      <div class="arc-connector"></div>
+      <div class="arc-step"><div class="arc-num">4</div><p class="arc-text">La institución crece con tecnología propia y libre</p></div>
+    </div>
+  </div>
+
+  <!-- ── LÁMINA 8: KEYWORDS ── -->
+  <div class="tile keywords">
+    <span class="lam-num dark">08 — REFERENCIAS</span>
+    <div class="keywords-bg">OPEN</div>
+    <p class="keywords-label">Palabras Clave</p>
+    <div class="kw-grid">
+      <span class="kw big">OPEN SOURCE</span>
+      <span class="kw small">·</span>
+      <span class="kw">COLABORACIÓN</span>
+      <span class="kw big">VERSION CONTROL</span>
+      <span class="kw small">git</span>
+      <span class="kw small">fork</span>
+      <span class="kw small">pull request</span>
+      <span class="kw">DOCUMENTACIÓN</span>
+      <span class="kw big">COMUNIDAD</span>
+      <span class="kw small">accesible</span>
+      <span class="kw">CÓDIGO LIBRE</span>
+      <span class="kw small">impacto</span>
+    </div>
+  </div>
+
+  <!-- ── LÁMINA 8b: REFERENCIAS VISUALES ── -->
+  <div class="tile referencias">
+    <span class="lam-num dark">08b — ICONOGRAFÍA</span>
+    <p class="ref-label">Referencias Visuales</p>
+    <div class="ref-icons">
+      <div class="ref-icon">🗂️</div>
+      <div class="ref-icon">⚙️</div>
+      <div class="ref-icon">🌿</div>
+      <div class="ref-icon">🔗</div>
+      <div class="ref-icon">📡</div>
+      <div class="ref-icon">🧩</div>
+    </div>
+  </div>
+
+  <!-- ── LÁMINA 9: REFLEXIÓN ── -->
+  <div class="tile reflexion">
+    <span class="lam-num">09 — REFLEXIÓN</span>
+    <p class="ref2-label">Resumen · Reflexión</p>
+    <p class="ref2-text">
+      NEXO integra <strong>narrativa educativa, código abierto y comunidad activa</strong> para construir 
+      el legado tecnológico de una institución. Cada elemento del moodboard refuerza ese propósito.
+    </p>
+  </div>
+
+  <!-- ── TERMINAL (contexto técnico) ── -->
+  <div class="tile terminal">
+    <div class="term-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+    <div class="term-line"><span class="p">student@nexo</span>:<span class="c">~/proyectos</span>$ <span class="s">git init nuevo-sistema</span></div>
+    <div class="term-line"><span class="ok">✓</span> Repositorio creado en /nuevo-sistema</div>
+    <div class="term-line"><span class="p">student@nexo</span>:<span class="c">~/nuevo-sistema</span>$ <span class="s">nexo publish --open</span></div>
+    <div class="term-line"><span class="ok">✓</span> Proyecto publicado · <span class="c">nexo.edu/nuevo-sistema</span></div>
+    <div class="term-line"><span class="ok">✓</span> Visible para toda la institución</div>
+  </div>
+
+  <!-- ── RESUMEN FINAL ── -->
+  <div class="tile resumen">
+    <p class="res-label">09 — Resumen Integrador</p>
+    <h3 class="res-title">TODOS LOS ELEMENTOS,<br>UN SOLO PROPÓSITO</h3>
+    <div class="res-points">
+      <div class="res-point">Narrativa centrada en el estudiante como agente de cambio</div>
+      <div class="res-point">Estética dark-tech que refleja el contexto open-source</div>
+      <div class="res-point">Audiencia amplia: alumnos, docentes y comunidad externa</div>
+      <div class="res-point">Formato web interactivo + CLI accesible desde cualquier lugar</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
