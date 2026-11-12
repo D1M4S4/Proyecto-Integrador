@@ -37,6 +37,9 @@ Proyecto-Integrador/
 ### Videos: 
 [QuantumFracture](https://youtu.be/wZCWNLLpmZQ?si=sphBJmRyD9zKGMoC)
 <br>
+fuentes del video: https://drive.google.com/file/d/13Pj8VmuFLKcLYPSqljG8mK3ms6hJTH74/view
+<br>
+<br>
 SantaOlalla
 [Video 1](https://youtu.be/m4kEFqun1Fo?si=XElKBk8ITd3ukrvW)
 [Video 2](https://youtu.be/R5FnQiFWVNI?si=p6V6xDtxiYHD4tzr)
