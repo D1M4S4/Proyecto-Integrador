@@ -36,9 +36,10 @@ Proyecto-Integrador/
 ## Créditos a este gran repositorio que nos fue de MUCHA ayuda para nuestro proyecto: [Atlas Opendata](https://github.com/atlas-outreach-data-tools/notebooks-collection-opendata)
 ### Videos: 
 [QuantumFracture](https://youtu.be/wZCWNLLpmZQ?si=sphBJmRyD9zKGMoC)
-[SantaOlalla](https://youtu.be/m4kEFqun1Fo?si=XElKBk8ITd3ukrvW)
-[SantaOlalla](https://youtu.be/R5FnQiFWVNI?si=p6V6xDtxiYHD4tzr)
-[SantaOlalla](https://youtu.be/ZhFfzsYMbpI?si=ZHmAsuZ9tddZHpkh)
+SantaOlalla: 
+[Video 1:](https://youtu.be/m4kEFqun1Fo?si=XElKBk8ITd3ukrvW)
+[Video 2:](https://youtu.be/R5FnQiFWVNI?si=p6V6xDtxiYHD4tzr)
+[Video 3:](https://youtu.be/ZhFfzsYMbpI?si=ZHmAsuZ9tddZHpkh)
 #### papers
 
 * Glezakou-Elbert, O. (2021). *A Comparison of Machine Learning Algorithms in Identifying Higgs Boson Events From the Background*. 2021 Summer STEM Institute. 
