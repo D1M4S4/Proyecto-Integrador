@@ -1,7 +1,6 @@
 # <center> Redescubriendo el Bosón de Higgs </span>
-## <span style="color:red;"> ¿Qué es el Bosón de Higgs? </span> 
-### El Bosón de Higgs es una partícula 
-## <span style="color:red;"> ¿Por qué es importante? </span> 
+# REFERENCIA: 
+[notebooks-collection-opendata](https://github.com/atlas-outreach-data-tools/notebooks-collection-opendata/tree/main/13-TeV-examples/uproot_python)
 
 # Estructura del repositorio
 
@@ -11,19 +10,26 @@ Proyecto-Integrador/
 │   └── loschidos/        #PDFs necesarios para entender
 │   └── opcionales/       #PDFs opcionales pero importantes
 ├── notebooks/            #notebooks utilizados
-├── bitacoras/            #documentacion detallada
-├── imagenes/          
+│   └── images/
+│   └── Proyecto_integrador_graficas/ #imagenes de nuestras graficas
+├── bitacoras/            # "documentacion detallada"         
 ```
 
 # Como ejecutarlo:
+- 1. En la terminal de git clonas el repositorio:
+$ git clone https://github.com/D1M4S4/Proyecto-Integrador.git 
+- 2. Inicia anaconda
+- 3. Busca la carpeta donde clonaste el repostorio
+- 4. Abre el archivo HZZAnalysis.ipynb
+- 5. Ejecuta la primer celda de codigo
+- 6. Reinicia el kernel: Kernel --> Restart Kernel
+- 7. Ejecuta todo lo demas.
 
-# Pasos del análisis
-# Distribucion o Simulacion de Monte Carlo 
-## solo pesos de la simulacion
 
-# Conclusiones:
 
-# Requisitos:
+### Requisitos:
+- python 3.6 o superior
+- anaconda 
 - Querer aprender algo nuevo
 
 # Carrera: Lic. en Inteligencia Artificial 3er Semestre  
@@ -33,7 +39,6 @@ Proyecto-Integrador/
 - ### Ivo Sanchez Pruneda.
 
 # <span style="color:red;"> BIBLIOGRAFIA </span>
-## Créditos a este gran repositorio que nos fue de MUCHA ayuda para nuestro proyecto: [Atlas Opendata](https://github.com/atlas-outreach-data-tools/notebooks-collection-opendata)
 ### Videos: 
 [QuantumFracture](https://youtu.be/wZCWNLLpmZQ?si=sphBJmRyD9zKGMoC)
 [SantaOlalla](https://youtu.be/m4kEFqun1Fo?si=XElKBk8ITd3ukrvW)
